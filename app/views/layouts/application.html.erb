@@ -17,8 +17,8 @@
 
         <div class="d-flex align-items-center">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Profile</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Payments</a></li>
+            <li><%= link_to "My Profile", profile_path(current_user.id), class: "nav-link px-2 link-secondary" %></li>
+            <li><%= link_to "Payments", payments_path, class: "nav-link px-2 link-body-emphasis" %></li>
           </ul>
 
           <div class="flex-shrink-0 dropdown">
@@ -40,6 +40,8 @@
     <% if alert.present? %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

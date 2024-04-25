@@ -1,0 +1,32 @@
+<!-- app/views/payments/index.html.erb -->
+<h1>Sent Payments</h1>
+
+<div class="btn-group" role="group" aria-label="Year Filter">
+  <% [2022, 2023, 2024].each do |year| %>
+    <%= link_to year, payments_path(year: year), class: "btn btn-outline-primary #{'active' if year.to_s == @selected_year}" %>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Recipient</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payments.each_with_index do |payment| %>
+      <tr>
+        <td><%= payment.id%></td>
+        <td><%= payment.recipient.name %></td>
+        <td><%= number_to_currency(payment.amount) %></td>
+        <td><%= payment.comment %></td>
+        <td><%= payment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
