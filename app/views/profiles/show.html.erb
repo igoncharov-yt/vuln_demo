@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1"><%= @user.name %></h2>
+      <p class="lead">Balance: <%= @user.balance.to_i %></p>
+
+      <% if current_user.id != @user.id %>
+        <p class="lead">
+          <%= form_with url: send_money_profile_path, method: :patch, local: true do |f| %>
+            <%= f.hidden_field :user_id, value: @user.id %>
+            
+            <div class="mb-3">
+              <%= f.label :amount, class: "form-label" %>
+              <%= f.text_field :amount, class: "form-control", placeholder: "Enter amount" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Send Money", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://i.pravatar.cc/500?u=u<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
+    </div>
+  </div>
+</div>
