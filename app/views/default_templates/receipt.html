@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset='utf-8' />
+  <link href="http://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css" media="screen" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="row header">
+      <div class="col-xs-6 text-left">
+        <h2>Payment {{ payment.id }}</h2>
+        <h3>Created At: {{ payment.created_at }}</h3>
+        <h3>Sender: {{ sender.name }}</h3>
+        <h3>Recipient: {{ recipient.name }}</h3>
+        <h3>Amount: {{ payment.amount }}</h3>
+      </div>
+    </div>
+    <hr>
+  </div>
+</body>
+
+</html>
+

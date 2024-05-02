@@ -1,0 +1,21 @@
+<div class="row featurette">
+  <div class="col-md-7 order-md-2">
+    <p class="lead"><b>Balance:</b> <%= @user.balance.to_i %> Million Dollars</p>
+
+    <p class="lead">
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <div class="mb-3">
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, step: 1, class: "form-control", placeholder: "Enter name" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update profile", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </p>
+  </div>
+  <div class="col-md-5 order-md-1">
+    <img src="https://i.pravatar.cc/300?u=u<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
+  </div>
+</div>

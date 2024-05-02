@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_25_181220) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_25_210739) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_25_181220) do
     t.bigint "recipient_id"
     t.string "comment"
     t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.string "kind"
+    t.text "html"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

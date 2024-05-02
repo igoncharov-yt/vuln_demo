@@ -1,9 +1,11 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="card p-4" style="width: 800px;">
+    <h1>All users</h2>
+    <hr />
     <div class="row">
-      <% User.limit(3).order(id: :desc).each do |user| %>
-        <div class="col-lg-3 text-center">
+      <% @users.each do |user| %>
+        <div class="col-sm-3 text-center">
           <%= link_to profile_path(user.id) do %>
             <img src="https://i.pravatar.cc/140?u=u<%= user.id %>" class="bd-placeholder-img rounded-circle" />
             <h2 class="fw-normal"><%= user.name %></h2>

@@ -78,3 +78,5 @@ gem "cssbundling-rails", "~> 1.4"
 gem "devise", "~> 4.9"
 
 gem "kaminari", "~> 1.2"
+
+gem "liquid", "~> 5.5"

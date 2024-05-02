@@ -15,6 +15,7 @@
       <th scope="col">Amount</th>
       <th scope="col">Comment</th>
       <th scope="col">Date</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,7 @@
         <td><%= number_to_currency(payment.amount) %></td>
         <td><%= payment.comment %></td>
         <td><%= payment.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= link_to "Receipt", receipt_path(payment.id) %></td>
       </tr>
     <% end %>
   </tbody>
