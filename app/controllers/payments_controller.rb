@@ -4,8 +4,6 @@ class PaymentsController < BaseController
     if params[:year].present?
       @payments = @payments.where("extract(year from created_at) = #{params[:year]}")
     end
-    # raise @payments.to_sql
-    # @payments = @payments.page(params[:page])
   end
 
   def create

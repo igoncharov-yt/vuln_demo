@@ -1,6 +1,6 @@
 <div class="row featurette">
   <div class="col-md-7 order-md-2">
-    <p class="lead"><b>Balance:</b> <%= @user.balance.to_i %> Million Dollars</p>
+    <p class="lead"><b>Balance:</b> <%= number_to_currency(@user.balance) %></p>
 
     <p class="lead">
       <%= form_with model: @user, url: profile_path, local: true do |f| %>
@@ -16,6 +16,6 @@
     </p>
   </div>
   <div class="col-md-5 order-md-1">
-    <img src="https://i.pravatar.cc/300?u=u<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
+    <img src="https://i.pravatar.cc/300?u=user<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
   </div>
 </div>

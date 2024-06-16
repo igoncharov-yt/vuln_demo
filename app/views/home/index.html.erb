@@ -1,14 +1,14 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="card p-4" style="width: 800px;">
-    <h1>All users</h2>
+    <h1><% if params[:name].present? %>Results for <b>"<%= params[:name].html_safe %>"</b><% else %>All users<% end %></h1>
     <hr />
     <div class="row">
       <% @users.each do |user| %>
         <div class="col-sm-3 text-center">
           <%= link_to profile_path(user.id) do %>
-            <img src="https://i.pravatar.cc/140?u=u<%= user.id %>" class="bd-placeholder-img rounded-circle" />
-            <h2 class="fw-normal"><%= user.name %></h2>
+            <img src="https://i.pravatar.cc/140?u=user<%= user.id %>" class="bd-placeholder-img rounded-circle" />
+            <h2 class="fw-normal"><%= truncate(user.name, length: 15, omission: '...') %></h2>
           <% end %>
         </div>
       <% end %>

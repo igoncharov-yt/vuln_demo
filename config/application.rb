@@ -18,6 +18,8 @@ module VulnDemo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "vuln.test"
+
+    config.action_dispatch.cookies_same_site_protection = :none
+    config.session_store :cookie_store, key: '_social_session', same_site: :lax, secure: true, httponly: true
   end
 end

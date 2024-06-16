@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VulnDemo</title>
+    <title>Social Network</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,12 +11,14 @@
   </head>
 
   <body>
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <div class="container">
+      <% if notice.present? %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

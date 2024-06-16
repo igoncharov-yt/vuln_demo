@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update]
   resources :payments, only: [:index, :create]
+  get '/payments/create_payment', to: 'payments#create', as: 'create_payment'
   resources :receipts, only: [:show]
 
   root "home#index"

@@ -1,7 +1,7 @@
 <div class="row featurette">
   <div class="col-md-7 order-md-2">
-    <h2 class="featurette-heading fw-normal lh-1"><%= @user.name %></h2>
-    <p class="lead"><b>Balance:</b> <%= @user.balance.to_i %> Million Dollars</p>
+    <h2 class="featurette-heading fw-normal lh-1"><%= @user.name.html_safe %></h2>
+    <p class="lead"><b>Balance:</b> <%= number_to_currency(@user.balance) %></p>
 
     <% if current_user.id != @user.id %>
       <p class="lead">
@@ -26,6 +26,6 @@
     <% end %>
   </div>
   <div class="col-md-5 order-md-1">
-    <img src="https://i.pravatar.cc/300?u=u<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
+    <img src="https://i.pravatar.cc/300?u=user<%= @user.id %>" class=bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" />
   </div>
 </div>
